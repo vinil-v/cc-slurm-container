@@ -1,10 +1,10 @@
 #!/bin/bash
 apt update
-apt install -y git gcc make libcap2-bin libtool automake
+DEBIAN_FRONTEND=noninteractive apt install -y git gcc make libcap2-bin libtool automake
 arch=$(dpkg --print-architecture)
 curl -fSsL -O https://github.com/NVIDIA/enroot/releases/download/v3.5.0/enroot_3.5.0-1_${arch}.deb
 sudo apt install -y ./*.deb
-apt install -y curl gawk jq squashfs-tools parallel libfuse3-dev squashfuse fuse-overlayfs
+DEBIAN_FRONTEND=noninteractive apt install -y curl gawk jq squashfs-tools parallel libfuse3-dev squashfuse fuse-overlayfs
 
 
 git clone --recurse-submodules https://github.com/NVIDIA/enroot.git
